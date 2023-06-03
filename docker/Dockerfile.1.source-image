@@ -1,0 +1,6 @@
+FROM alpine:latest
+
+VOLUME /delivery
+WORKDIR /delivery
+
+RUN echo "Hello from Dockerfile 1" > file1.txt

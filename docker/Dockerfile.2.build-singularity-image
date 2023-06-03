@@ -1,0 +1,5 @@
+FROM --platform=linux/arm64 quay.io/singularity/singularity:v3.10.4
+
+WORKDIR /image
+
+CMD ["build", "target-singularity-image.sif", "docker-archive://source-docker-image.tar"]
