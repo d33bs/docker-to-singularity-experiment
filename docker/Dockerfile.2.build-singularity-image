@@ -1,5 +1,6 @@
-FROM --platform=linux/arm64 quay.io/singularity/singularity:v3.10.4
+FROM --platform=linux/arm64 quay.io/singularity/singularity:v3.10.4-arm64
 
 WORKDIR /image
 
-CMD ["build", "target-singularity-image.sif", "docker-archive://source-docker-image.tar"]
+# build a singularity image from a docker image
+CMD ["build", "target-singularity-image.sif", "docker-archive://source-docker-image.tar.gz"]

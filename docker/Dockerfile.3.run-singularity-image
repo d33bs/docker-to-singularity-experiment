@@ -1,6 +1,8 @@
-FROM --platform=linux/amd64 quay.io/singularity/singularity:v3.10.4
+FROM --platform=linux/arm64 quay.io/singularity/singularity:v3.10.4-arm64
 
 VOLUME /delivery
 WORKDIR /image
 
+# run a singularity image
 CMD ["run", "--bind", "/delivery:/delivery", "target-singularity-image.sif"]
+

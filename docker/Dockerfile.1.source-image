@@ -1,6 +1,9 @@
 FROM alpine:latest
 
-VOLUME /delivery
 WORKDIR /delivery
+VOLUME /delivery
 
-RUN echo "Hello from Dockerfile 1" > file1.txt
+# note: we leverage ENTRYPOINT to directly create the file here to keep in alignment
+# with Singularity expectations: https://docs.sylabs.io/guides/2.6/user-guide/singularity_and_docker.html
+ENTRYPOINT [ "/bin/sh", "-c", "echo 'Hello from an image!' > /delivery/test.txt"]
+
