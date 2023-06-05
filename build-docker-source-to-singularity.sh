@@ -3,7 +3,7 @@
 # remove existing files
 rm ./delivery/test.txt
 rm ./image/source-docker-image.tar.gz
-rm ./image/target-singularity-image.sif
+rm ./image/target-singularity-image.sif*
 
 # create a buildx builder
 docker buildx create --name mybuilder
@@ -35,3 +35,6 @@ if [[ ! -f delivery/test.txt ]] ; then
     echo 'File "delivery/test.txt" not available!'
     exit
 fi
+
+# package the singularity image for a release
+tar czvf image/target-singularity-image.sif.tar.gz image/target-singularity-image.sif
