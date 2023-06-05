@@ -30,6 +30,7 @@ docker build --platform $DOCKER_SINGULARITY_PLATFORM -f docker/Dockerfile.2.buil
 docker run --platform $DOCKER_SINGULARITY_PLATFORM -v $PWD/image:/image -it --privileged singularity-builder 
 
 # try to run the singularity image, mapping the results through docker
+# note: this appears to be broken for linux/amd64 running on apple silicone but otherwise works with arm64 platforms on the same
 docker build --platform $DOCKER_SINGULARITY_PLATFORM -f docker/Dockerfile.3.run-singularity-image -t singularity-runner .
 docker run --platform $DOCKER_SINGULARITY_PLATFORM -v $PWD/delivery:/delivery -v $PWD/image:/image -it --privileged singularity-runner 
 
